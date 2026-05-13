@@ -236,7 +236,7 @@ const App = () => {
           <div className="max-w-2xl mx-auto">
             <article className="bg-zinc-950 border border-amber-400/30 rounded-xl overflow-hidden flex flex-col shadow-[0_0_40px_rgba(251,191,36,0.08)]">
               <div className="h-64 bg-zinc-800 relative">
-                <img src={IMGS.ceramic} alt="Nano Ceramic Korean Tint installation" className="w-full h-full object-cover opacity-70" />
+                <img src={IMGS.carbon} alt="Nano Ceramic Korean Tint installation" className="w-full h-full object-cover opacity-70" />
                 <div className="absolute top-4 right-4 bg-amber-400 text-black px-3 py-1 rounded font-bold text-xs uppercase tracking-wider">Premium Korean Film</div>
               </div>
               <div className="p-8 flex-1 flex flex-col">
