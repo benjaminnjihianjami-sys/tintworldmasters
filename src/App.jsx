@@ -47,10 +47,16 @@ const App = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const reels = [
+  const driveReels = [
+    '1TK-0U-daZCgPCHj-W_tDjGCO3Z0whfbl',
+    '1joIQK_fhKuySBB1jhjUHhb_T_OCXhGRf',
+    '1R1VUl2qio17sqz-e7s4kUsa7dqKxkp-Q',
+  ];
+
+  const fbReels = [
     "https://web.facebook.com/reel/933910015841579",
     "https://web.facebook.com/reel/1058581886464269",
-    "https://web.facebook.com/reel/1317518542933079"
+    "https://web.facebook.com/reel/1317518542933079",
   ];
 
   const handleSubmit = (e) => {
@@ -278,8 +284,33 @@ const App = () => {
             <p className="text-zinc-400 font-medium">Check out our latest installations in action.</p>
           </div>
 
+          {/* Google Drive Reels */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center mb-6">
+            {driveReels.map((id, index) => (
+              <div key={id} className="w-full max-w-[300px] aspect-[9/16] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl relative">
+                <div className="absolute inset-0 flex items-center justify-center bg-zinc-900/80 z-0">
+                  <div className="animate-pulse flex flex-col items-center">
+                    <Play className="text-red-500 mb-2" size={32} />
+                    <span className="text-xs uppercase text-zinc-500 font-bold">Loading Reel...</span>
+                  </div>
+                </div>
+                <iframe
+                  src={`https://drive.google.com/file/d/${id}/preview`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 'none' }}
+                  allow="autoplay"
+                  allowFullScreen={true}
+                  className="relative z-10 w-full h-full"
+                  title={`Tint World Masters Reel ${index + 1}`}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Facebook Reels */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
-            {reels.map((url, index) => {
+            {fbReels.map((url, index) => {
               const encodedUrl = encodeURIComponent(url);
               const embedSrc = `https://www.facebook.com/plugins/video.php?href=${encodedUrl}&show_text=false&width=267&autoplay=true&mute=true`;
 
@@ -301,7 +332,7 @@ const App = () => {
                     allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     className="relative z-10 w-full h-full object-cover"
-                    title={`Tint World Masters Reel ${index + 1}`}
+                    title={`Tint World Masters Facebook Reel ${index + 1}`}
                   />
                 </div>
               );
